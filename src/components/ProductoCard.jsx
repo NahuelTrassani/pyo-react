@@ -1,0 +1,19 @@
+import { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
+
+function ProductoCard({ producto }) {
+    const { addToCart } = useContext(CartContext)
+    return (
+        <div className="producto-card">
+            <img src={producto.imagen} className="producto-imagen" alt={producto.nombre} />
+            <div className="producto-categoria">{producto.categoria}</div>
+            <div className="producto-nombre">{producto.nombre}</div>
+            <div className="producto-descripcion">{producto.descripcion}</div>
+            <div className="producto-precio">${producto.precio}</div>
+            <button className="btn-agregar" onClick={() => addToCart(producto, 1)}>
+                Agregar al carrito
+            </button>
+        </div>
+    )
+}
+export default ProductoCard
