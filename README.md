@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🍝 Pimienta & Orégano — E-commerce React
 
 > 🛍️ Proyecto final del curso de React JS de Coder House. Migración y evolución del [proyecto original en Vanilla JS](https://github.com/NahuelTrassani/Pimienta-Oregano) hacia una Single Page Application construida con React, Context API, React Router y Firebase.
@@ -110,3 +111,7 @@ npm install firebase
 **Nahuel Trassani**
 - GitHub: [@NahuelTrassani](https://github.com/NahuelTrassani)
 - LinkedIn: [linkedin.com/in/nahuel-trassani](https://linkedin.com/in/nahuel-trassani)
+=======
+# pyo-react
+Pimienta y Oregano en React.
+>>>>>>> db64a1d64e1a3ea4e964b1e719632bd4dd565433
