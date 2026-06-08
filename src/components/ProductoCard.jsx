@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 function ProductoCard({ producto }) {
     const { addToCart } = useContext(CartContext)
@@ -13,6 +14,9 @@ function ProductoCard({ producto }) {
             <button className="btn-agregar" onClick={() => addToCart(producto, 1)}>
                 Agregar al carrito
             </button>
+            <Link to={`/item/${producto.id}`} className="btn-detalle">
+                Ver detalle
+            </Link>
         </div>
     )
 }

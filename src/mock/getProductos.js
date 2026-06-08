@@ -4,6 +4,7 @@ export const getProductos = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(productosData)
-    }, 1000)
+    // }, 1000)
+    }, 0)
   })
 }
