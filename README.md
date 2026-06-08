@@ -114,4 +114,3 @@ npm install firebase
 =======
 # pyo-react
 Pimienta y Oregano en React.
->>>>>>> db64a1d64e1a3ea4e964b1e719632bd4dd565433
