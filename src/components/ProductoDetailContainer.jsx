@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { getProductos } from "../mock/getProductos";
 import { useNavigate } from 'react-router-dom'
+import ItemCount from "./ItemCount";
+import { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
 
 function ProductoDetailContainer() {
     const [producto, setProducto] = useState(null)
@@ -13,6 +16,13 @@ function ProductoDetailContainer() {
             setProducto(productoEncontrado)
         })
     }, [id])
+
+    const { addToCart } = useContext(CartContext)
+
+    const onAdd = (cantidad) => {
+        addToCart(producto, cantidad)
+    }
+
     if (!producto) {
         return <div>Cargando...</div>
     }
@@ -24,6 +34,7 @@ function ProductoDetailContainer() {
                 <p>{producto.descripcion}</p>
                 <div className="producto-detail-precio">${producto.precio}</div>
             </div>
+            <ItemCount stock={producto.stock} onAdd={onAdd} />
             <button onClick={() => navigate(-1)}>← Volver</button>
 
         </div>

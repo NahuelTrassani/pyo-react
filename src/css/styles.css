@@ -178,6 +178,11 @@ header h1 {
   transform: scale(1.05);
 }
 
+a.btn-categoria {
+  text-decoration: none;
+  display: inline-block;
+}
+
 /* Grid de productos mejorado */
 .productos-grid {
   display: grid;

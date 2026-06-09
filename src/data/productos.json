@@ -4,6 +4,7 @@
     "nombre": "Spaghetti Tradicional",
     "categoria": "Fideos",
     "precio": 1800,
+    "stock": 45,
     "imagen": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=300&fit=crop",
     "descripcion": "Pasta larga clásica, ideal para todo tipo de salsas"
   },
@@ -12,6 +13,7 @@
     "nombre": "Fettuccine",
     "categoria": "Fideos",
     "precio": 2200,
+    "stock": 32,
     "imagen": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=400&h=300&fit=crop",
     "descripcion": "Pasta plana ancha, perfecta para salsas cremosas"
   },
@@ -20,6 +22,7 @@
     "nombre": "Penne Rigate",
     "categoria": "Fideos",
     "precio": 1900,
+    "stock": 58,
     "imagen": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop",
     "descripcion": "Tubos pequeños con líneas, retienen bien las salsas"
   },
@@ -28,6 +31,7 @@
     "nombre": "Fusilli Tricolor",
     "categoria": "Fideos",
     "precio": 2500,
+    "stock": 27,
     "imagen": "https://images.unsplash.com/photo-1622973536968-3ead9e780960?w=400&h=300&fit=crop",
     "descripcion": "Espirales de colores, con espinaca y tomate"
   },
@@ -36,6 +40,7 @@
     "nombre": "Ñoquis de Papa",
     "categoria": "Ñoquis",
     "precio": 2400,
+    "stock": 41,
     "imagen": "https://images.unsplash.com/photo-1586779245509-5f429311242f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "descripcion": "Clásicos ñoquis artesanales de papa"
   },
@@ -44,6 +49,7 @@
     "nombre": "Ñoquis de Calabaza",
     "categoria": "Ñoquis",
     "precio": 2700,
+    "stock": 23,
     "imagen": "https://images.unsplash.com/photo-1698688332650-8724293b2ad8?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "descripcion": "Suaves ñoquis con calabaza y nuez moscada"
   },
@@ -52,6 +58,7 @@
     "nombre": "Ñoquis de Espinaca",
     "categoria": "Ñoquis",
     "precio": 2800,
+    "stock": 36,
     "imagen": "https://media.istockphoto.com/id/2240619232/photo/gnocchi-spinach-potato-dough-second-course-portion-size-natural-product-tasty-snack-fresh.jpg?s=2048x2048&w=is&k=20&c=dtjXmWtsDl-NmEayjaZNUAAcZNdyejyg0552hOKoBV0=",
     "descripcion": "Ñoquis verdes con espinaca fresca"
   },
@@ -60,6 +67,7 @@
     "nombre": "Placas de Lasagna",
     "categoria": "Lasagnas",
     "precio": 2100,
+    "stock": 54,
     "imagen": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop",
     "descripcion": "Placas frescas para lasagna casera"
   },
@@ -68,6 +76,7 @@
     "nombre": "Lasagna Verde",
     "categoria": "Lasagnas",
     "precio": 2400,
+    "stock": 29,
     "imagen": "https://images.unsplash.com/photo-1619895092538-128341789043?w=400&h=300&fit=crop",
     "descripcion": "Placas de lasagna con espinaca"
   },
@@ -76,6 +85,7 @@
     "nombre": "Ravioles de Ricota",
     "categoria": "Rellenas",
     "precio": 2650,
+    "stock": 47,
     "imagen": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&h=300&fit=crop",
     "descripcion": "Ravioles rellenos de ricota y espinaca"
   },
@@ -84,6 +94,7 @@
     "nombre": "Ravioles de Carne",
     "categoria": "Rellenas",
     "precio": 2680,
+    "stock": 38,
     "imagen": "https://images.unsplash.com/photo-1665761543682-6305ccc5398b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmF2aW9sZXN8ZW58MHx8MHx8fDA%3D",
     "descripcion": "Ravioles con relleno de carne jugosa"
   },
@@ -92,6 +103,7 @@
     "nombre": "Sorrentinos de Jamón y Queso",
     "categoria": "Rellenas",
     "precio": 2720,
+    "stock": 21,
     "imagen": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop",
     "descripcion": "Sorrentinos rellenos de jamón y mozzarella"
   },
@@ -100,6 +112,7 @@
     "nombre": "Cappelletti",
     "categoria": "Rellenas",
     "precio": 2690,
+    "stock": 55,
     "imagen": "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400&h=300&fit=crop",
     "descripcion": "Pasta en forma de sombrero con carne"
   },
@@ -108,6 +121,7 @@
     "nombre": "Tallarines de Remolacha",
     "categoria": "Saborizadas",
     "precio": 2600,
+    "stock": 33,
     "imagen": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop",
     "descripcion": "Pasta rosa con remolacha natural"
   },
@@ -116,6 +130,7 @@
     "nombre": "Fettuccine Negro",
     "categoria": "Saborizadas",
     "precio": 3200,
+    "stock": 20,
     "imagen": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop",
     "descripcion": "Pasta negra con tinta de calamar"
   },
@@ -124,6 +139,7 @@
     "nombre": "Linguine de Albahaca",
     "categoria": "Saborizadas",
     "precio": 2700,
+    "stock": 43,
     "imagen": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop",
     "descripcion": "Pasta verde con albahaca fresca"
   }

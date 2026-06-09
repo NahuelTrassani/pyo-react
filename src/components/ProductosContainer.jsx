@@ -16,7 +16,7 @@ function ProductosContainer() {
     }, [])
 
     return (
-        <div className="productos-container">
+        <div className="container">
             <ProductoList productos={productosFiltrados} />
         </div>
     )

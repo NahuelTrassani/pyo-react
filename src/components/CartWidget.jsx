@@ -1,14 +1,15 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 function CartWidget() {
     const { getTotalCantidad } = useContext(CartContext)
 
     return (
-        <button className="carrito-btn" id="btnCarrito">
+        <Link to='/cart' className="carrito-btn">
             🛒 Carrito
-            <span className="badge" id="cantidadCarrito">{getTotalCantidad()}</span>
-        </button>
+            <span className="badge">{getTotalCantidad()}</span>
+        </Link>
     )
 }
 export default CartWidget
