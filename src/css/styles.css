@@ -91,8 +91,13 @@ header h1 {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /* Filtros modernos */
@@ -236,7 +241,7 @@ a.btn-categoria {
   transform: scale(1.1);
 }
 
-.producto-card > div:not(.producto-imagen) {
+.producto-card>div:not(.producto-imagen) {
   padding: 0 20px;
 }
 
@@ -337,8 +342,13 @@ a.btn-categoria {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .modal.activo {
@@ -356,6 +366,7 @@ a.btn-categoria {
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 2rem auto;
 }
 
 @keyframes slideUp {
@@ -363,6 +374,7 @@ a.btn-categoria {
     transform: translateY(50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -424,8 +436,13 @@ a.btn-categoria {
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
 
 /* Carrito vacío */
@@ -644,4 +661,31 @@ a.btn-categoria {
   .total-monto {
     font-size: 2rem;
   }
+}
+
+.checkout-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-form h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.checkout-form input {
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.checkout-form input:focus {
+  border-color: #667eea;
 }
