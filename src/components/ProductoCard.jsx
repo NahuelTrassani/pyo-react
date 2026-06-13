@@ -11,8 +11,8 @@ function ProductoCard({ producto }) {
             <div className="producto-nombre">{producto.nombre}</div>
             <div className="producto-descripcion">{producto.descripcion}</div>
             <div className="producto-precio">${producto.precio}</div>
-            <button className="btn-agregar" onClick={() => addToCart(producto, 1)}>
-                Agregar al carrito
+            <button className="btn-agregar" onClick={() => addToCart(producto, 1)} disabled={producto.stock === 0}>
+                {producto.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}
             </button>
             <Link to={`/item/${producto.id}`} className="btn-detalle">
                 Ver detalle

@@ -7,10 +7,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 function ProductosContainer() {
     const [productos, setProductos] = useState([])
     const { type } = useParams()
-    const productosFiltrados = productos.filter(p =>
-        type ? p.categoria === type : true
-    )
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setLoading(true)
@@ -25,6 +22,15 @@ function ProductosContainer() {
 
     if (loading) return <div className="container"><p>Cargando...</p></div>
 
+    if (!loading && productos.length === 0) return (
+        <div className="container">
+            <div className="carrito-vacio">
+                <p>🍝</p>
+                <p>No hay productos en esta categoría</p>
+            </div>
+        </div>
+    )
+    
     return (
         <div className="container">
             <ProductoList productos={productos} />

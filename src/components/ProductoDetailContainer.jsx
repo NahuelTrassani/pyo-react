@@ -1,10 +1,8 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from 'react'
 import { db } from '../service/firebase'
 import { doc, getDoc } from 'firebase/firestore'
-import { useNavigate } from 'react-router-dom'
 import ItemCount from "./ItemCount";
-import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
 function ProductoDetailContainer() {
@@ -15,7 +13,9 @@ function ProductoDetailContainer() {
     useEffect(() => {
         const docRef = doc(db, 'items', id)
         getDoc(docRef).then(snapshot => {
-            setProducto({ id: snapshot.id, ...snapshot.data() })
+            if (snapshot.exists()) {
+                setProducto({ id: snapshot.id, ...snapshot.data() })
+            }
         })
     }, [id])
 

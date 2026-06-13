@@ -6,9 +6,9 @@ import { CartContextProvider } from './context/CartContext'
 import ProductoDetailContainer from './components/ProductoDetailContainer'
 import CartContainer from './components/CartContainer'
 import CheckoutForm from './components/CheckoutForm'
+import NotFound from './components/NotFound'
 
 function App() {
-  // const [carrito, setCarrito] = useState([]) //carrito inicia vacio
   return (
     <>
       <BrowserRouter>
@@ -20,7 +20,7 @@ function App() {
             <Route path='/item/:id' element={<ProductoDetailContainer />} />
             <Route path='/cart' element={<CartContainer />} />
             <Route path='/checkout' element={<CheckoutForm />} />
-            {/* <Route path='*' element={<Error />} /> */}
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </CartContextProvider>
       </BrowserRouter>

@@ -15,7 +15,7 @@ function ItemCount({ stock, onAdd }) {
             setCount(count - 1)
         }
     }
-
+    if (stock === 0) return <div>Sin stock</div>
     return (
         <div className="item-count">
             <button onClick={decrement}>-</button>
