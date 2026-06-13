@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
-import { getProductos } from "../mock/getProductos";
+import { db } from '../service/firebase'
+import { doc, getDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import ItemCount from "./ItemCount";
 import { useContext } from 'react'
@@ -10,10 +11,11 @@ function ProductoDetailContainer() {
     const [producto, setProducto] = useState(null)
     const { id } = useParams()
     const navigate = useNavigate()
+
     useEffect(() => {
-        getProductos().then(data => {
-            const productoEncontrado = data.find(p => p.id === parseInt(id))
-            setProducto(productoEncontrado)
+        const docRef = doc(db, 'items', id)
+        getDoc(docRef).then(snapshot => {
+            setProducto({ id: snapshot.id, ...snapshot.data() })
         })
     }, [id])
 

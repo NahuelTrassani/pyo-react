@@ -1,5 +1,6 @@
 import ProductoList from "./ProductoList";
-import {getProductos} from "../mock/getProductos";
+import { db } from '../service/firebase'
+import { collection, getDocs } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -8,11 +9,14 @@ function ProductosContainer() {
     const [productos, setProductos] = useState([])
     const { type } = useParams()
     const productosFiltrados = productos.filter(p =>
-    type ? p.categoria === type : true
-)
-
+        type ? p.categoria === type : true
+    )
     useEffect(() => {
-        getProductos().then(data => setProductos(data))
+        const col = collection(db, 'items')
+        getDocs(col).then(snapshot => {
+            const data = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+            setProductos(data)
+        })
     }, [])
 
     return (
@@ -22,4 +26,3 @@ function ProductosContainer() {
     )
 }
 export default ProductosContainer
-        
