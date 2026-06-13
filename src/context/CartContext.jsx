@@ -1,4 +1,5 @@
 import { createContext, useState } from "react"
+import Swal from 'sweetalert2'
 
 export const CartContext = createContext()
 
@@ -8,12 +9,22 @@ export const CartContextProvider = ({ children }) => {
     const addToCart = (producto, cantidad) => {
         const existe = cart.find(item => item.id === producto.id)
         if (existe) {
+            if (existe.cantidad + cantidad > producto.stock) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Stock insuficiente',
+                    text: `Solo hay ${producto.stock} unidades disponibles`,
+                    confirmButtonColor: '#667eea'
+                })
+                return
+            }
             setCart(cart.map(item =>
                 item.id === producto.id
                     ? { ...item, cantidad: item.cantidad + cantidad }
                     : item
             ))
         } else {
+            if (cantidad > producto.stock) return
             setCart([...cart, { ...producto, cantidad }])
         }
     }

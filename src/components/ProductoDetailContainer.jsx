@@ -9,17 +9,16 @@ function ProductoDetailContainer() {
     const [producto, setProducto] = useState(null)
     const { id } = useParams()
     const navigate = useNavigate()
+    const { addToCart, cart } = useContext(CartContext)
 
     useEffect(() => {
         const docRef = doc(db, 'items', id)
         getDoc(docRef).then(snapshot => {
             if (snapshot.exists()) {
-                setProducto({ id: snapshot.id, ...snapshot.data() })
+                setProducto({ ...snapshot.data(), id: snapshot.id })
             }
         })
     }, [id])
-
-    const { addToCart } = useContext(CartContext)
 
     const onAdd = (cantidad) => {
         addToCart(producto, cantidad)
@@ -28,6 +27,7 @@ function ProductoDetailContainer() {
     if (!producto) {
         return <div>Cargando...</div>
     }
+    const cantidadEnCarrito = cart.find(item => item.id === producto.id)?.cantidad || 0
     return (
         <div className="producto-detail">
             <img src={producto.imagen} className="producto-detail-imagen" alt={producto.nombre} />
@@ -35,9 +35,10 @@ function ProductoDetailContainer() {
                 <h2>{producto.nombre}</h2>
                 <p>{producto.descripcion}</p>
                 <div className="producto-detail-precio">${producto.precio}</div>
+                <div className="producto-detail-stock">Stock disponible: {producto.stock} unidades</div>
             </div>
-            <ItemCount stock={producto.stock} onAdd={onAdd} />
-            <button onClick={() => navigate(-1)}>← Volver</button>
+            <ItemCount key={cantidadEnCarrito} stock={producto.stock - cantidadEnCarrito} onAdd={onAdd} />
+            <button className="btn-categoria" onClick={() => navigate(-1)}>← Volver</button>
 
         </div>
     )
