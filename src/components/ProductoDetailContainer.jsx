@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { useState, useEffect, useContext } from 'react'
 import { db } from '../service/firebase'
 import { doc, getDoc } from 'firebase/firestore'
@@ -25,9 +25,11 @@ function ProductoDetailContainer() {
     }
 
     if (!producto) {
-        return <div>Cargando...</div>
+        return <div className="container"><p>Cargando...</p></div>
     }
+
     const cantidadEnCarrito = cart.find(item => item.id === producto.id)?.cantidad || 0
+
     return (
         <div className="producto-detail">
             <img src={producto.imagen} className="producto-detail-imagen" alt={producto.nombre} />
@@ -38,8 +40,10 @@ function ProductoDetailContainer() {
                 <div className="producto-detail-stock">Stock disponible: {producto.stock} unidades</div>
             </div>
             <ItemCount key={cantidadEnCarrito} stock={producto.stock - cantidadEnCarrito} onAdd={onAdd} />
-            <button className="btn-categoria" onClick={() => navigate(-1)}>← Volver</button>
-
+            <div style={{ display: 'flex', gap: '1rem' }}>
+                <button className="btn-categoria" onClick={() => navigate(-1)}>← Volver</button>
+                {cantidadEnCarrito > 0 && <Link to="/cart" className="btn-categoria" style={{ textDecoration: 'none', marginLeft: 'auto' }}>Ir al carrito 🛒 </Link>}
+            </div>
         </div>
     )
 }

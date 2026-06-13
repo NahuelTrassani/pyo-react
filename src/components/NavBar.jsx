@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import CartWidget from './CartWidget'
 export default function NavBar() {
     return (
-        <>
+        <div>
             <header>
                 <div className="container">
                     <div className="header-content">
@@ -24,6 +24,6 @@ export default function NavBar() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -7,6 +7,7 @@ import ProductoDetailContainer from './components/ProductoDetailContainer'
 import CartContainer from './components/CartContainer'
 import CheckoutForm from './components/CheckoutForm'
 import NotFound from './components/NotFound'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -14,17 +15,19 @@ function App() {
       <BrowserRouter>
         <CartContextProvider>
           <NavBar />
-          <Routes>
-            <Route path='/' element={<ProductosContainer />} />
-            <Route path='/category/:type' element={<ProductosContainer />} />
-            <Route path='/item/:id' element={<ProductoDetailContainer />} />
-            <Route path='/cart' element={<CartContainer />} />
-            <Route path='/checkout' element={<CheckoutForm />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
+          <main style={{ flex: 1 }}>
+            <Routes>
+              <Route path='/' element={<ProductosContainer />} />
+              <Route path='/category/:type' element={<ProductosContainer />} />
+              <Route path='/item/:id' element={<ProductoDetailContainer />} />
+              <Route path='/cart' element={<CartContainer />} />
+              <Route path='/checkout' element={<CheckoutForm />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
         </CartContextProvider>
       </BrowserRouter>
-
     </>
   )
 }

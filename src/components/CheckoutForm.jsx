@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import { db } from '../service/firebase'
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp, doc, updateDoc, increment } from 'firebase/firestore'
 import { CartContext } from '../context/CartContext'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -21,22 +21,20 @@ function CheckoutForm() {
     }
 
     const handleSubmit = (e) => {
-        setLoading(true)
         e.preventDefault()
-        const orden = {
-            buyer: form,
-            items: cart,
-            total: getTotalPrecio(),
-            fecha: serverTimestamp()
-        }
+        setLoading(true)
+        const orden = { buyer: form, items: cart, total: getTotalPrecio(), fecha: serverTimestamp() }
         addDoc(collection(db, 'orders'), orden).then(docRef => {
-            setOrderId(docRef.id)
-            removeList()
-            setLoading(false)
+            const stockUpdates = cart.map(item =>
+                updateDoc(doc(db, 'items', item.id), { stock: increment(-item.cantidad) })
+            )
+            return Promise.all(stockUpdates).then(() => {
+                setOrderId(docRef.id)
+                removeList()
+                setLoading(false)
+            })
         })
     }
-
-
 
     if (orderId) {
         return (
@@ -61,7 +59,7 @@ function CheckoutForm() {
                     <h2>Finalizar compra</h2>
                     <input name="nombre" placeholder="Nombre" value={form.nombre} onChange={handleChange} required />
                     <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required />
-                    <input name="telefono" placeholder="Teléfono" value={form.telefono} onChange={handleChange} required />
+                    <input name="telefono" type="tel" pattern="[0-9+\s\-()]{6,20}" placeholder="Teléfono" value={form.telefono} onChange={handleChange} required />
                     <button type="submit" className="btn-finalizar" disabled={loading}>
                         {loading ? 'Procesando...' : 'Confirmar orden'}
                     </button>
